@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 import sys
 import re
 import string
@@ -31,35 +31,33 @@ def extract_boundary_read(head, fold):
     e = re.split(r':|-|\|', head)[2]
     length = int(e) - int(s)
     i = 'unmapped'
-    end = open(fold + '/' + head + '_read_end_' + i + '.sam', 'r')
-    start = open(fold + '/' + head + '_read_start_' + i + '.sam', 'r')
     end_index_0 = {}
     end_index_16 = {}
-    for line in end:
-        if not line.startswith('@') and line.split()[3] == '1':
-            if line.split()[1] == '0':
-                end_index_0[line.split()[0]] = line.split()[9]
-            elif line.split()[1] == '16':
-                end_index_16[line.split()[0]] = line.split()[9]
-    for line in start:
-        if not line.startswith('@'):
-            if line.split()[1] == '0' and line.split()[0] in end_index_0:
-                n = length - int(line.split()[3]) + 1
-                if n >= 100:
-                    continue
-                start_seq = end_index_0[line.split()[0]]
-                end_seq = line.split()[9]
-                read.append([start_seq, n, end_seq])
-            elif (line.split()[1] == '16' and
-                    line.split()[0] in end_index_16):
-                n = length - int(line.split()[3]) + 1
-                if n >= 100:
-                    continue
-                start_seq = end_index_16[line.split()[0]]
-                end_seq = line.split()[9]
-                read.append([start_seq, n, end_seq])
-    start.close()
-    end.close()
+    with open(fold + '/' + head + '_read_end_' + i + '.sam', 'r') as end:
+        for line in end:
+            if not line.startswith('@') and line.split()[3] == '1':
+                if line.split()[1] == '0':
+                    end_index_0[line.split()[0]] = line.split()[9]
+                elif line.split()[1] == '16':
+                    end_index_16[line.split()[0]] = line.split()[9]
+    with open(fold + '/' + head + '_read_start_' + i + '.sam', 'r') as start:
+        for line in start:
+            if not line.startswith('@'):
+                if line.split()[1] == '0' and line.split()[0] in end_index_0:
+                    n = length - int(line.split()[3]) + 1
+                    if n >= 100:
+                        continue
+                    start_seq = end_index_0[line.split()[0]]
+                    end_seq = line.split()[9]
+                    read.append([start_seq, n, end_seq])
+                elif (line.split()[1] == '16' and
+                        line.split()[0] in end_index_16):
+                    n = length - int(line.split()[3]) + 1
+                    if n >= 100:
+                        continue
+                    start_seq = end_index_16[line.split()[0]]
+                    end_seq = line.split()[9]
+                    read.append([start_seq, n, end_seq])
     return read
 
 
