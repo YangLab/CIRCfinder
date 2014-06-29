@@ -52,6 +52,7 @@ Requirements
 * [TopHat](http://ccb.jhu.edu/software/tophat/index.shtml)
 * [Bowtie](http://bowtie-bio.sourceforge.net/index.shtml)
 * [bedtools](https://github.com/arq5x/bedtools2)
+* [pysam](https://github.com/pysam-developers/pysam)
 
 Citation
 --------
