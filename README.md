@@ -49,10 +49,10 @@ Requirements
 
 * Interested intron regions that may contain ciRNAs
 * Poly(A)- RNA-seq dataset for your interested cell line/tissue/species (RNase R treatment is recommended)
-* [TopHat](http://ccb.jhu.edu/software/tophat/index.shtml)
-* [Bowtie](http://bowtie-bio.sourceforge.net/index.shtml)
-* [bedtools](https://github.com/arq5x/bedtools2)
-* [pysam](https://github.com/pysam-developers/pysam)
+* [TopHat](http://ccb.jhu.edu/software/tophat/index.shtml) v2.0.9
+* [Bowtie](http://bowtie-bio.sourceforge.net/index.shtml) 0.12.9
+* [bedtools](https://github.com/arq5x/bedtools2) v2.17.0
+* [pysam](https://github.com/pysam-developers/pysam) 0.6
 
 Citation
 --------
