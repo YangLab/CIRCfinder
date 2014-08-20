@@ -57,7 +57,7 @@ Requirements
 Citation
 --------
 
-**[Zhang Y, Zhang XO, Chen T, Xiang JF, Yin QF, Xing YH, Zhu S, Yang L and Chen LL. Circular intronic long noncoding RNAs. Mol Cell, 2013, 51:792-806](http://www.cell.com/molecular-cell/abstract/S1097-2765%2813%2900590-X)**
+**[Zhang Y*, Zhang XO*, Chen T, Xiang JF, Yin QF, Xing YH, Zhu S, Yang L# and Chen LL#. Circular intronic long noncoding RNAs. Mol Cell, 2013, 51:792-806](http://www.cell.com/molecular-cell/abstract/S1097-2765%2813%2900590-X)**
 
 License
 -------
