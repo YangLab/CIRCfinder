@@ -62,6 +62,6 @@ Citation
 License
 -------
 
-Copyright (C) 2014 YangLab.
+Copyright (C) 2014-2016 YangLab.
 See the [LICENSE](https://github.com/YangLab/CIRCfinder/blob/master/LICENSE)
 file for license rights and limitations (MIT).
