@@ -6,7 +6,7 @@ import string
 
 def main():
     if len(sys.argv) != 3:
-        print('boundary_read_summary.py intron.fa read_fold')
+        print('boundary_read_summary.py intron.fa read_folder')
         sys.exit(0)
     with open('boundary_read.txt', 'w') as outf:
         with open(sys.argv[1], 'r') as intron:
@@ -25,7 +25,7 @@ def main():
                             outf.write(read[2] + '\n')
 
 
-def extract_boundary_read(head, fold):
+def extract_boundary_read(head, folder):
     read = []
     s = re.split(r':|-|\|', head)[1]
     e = re.split(r':|-|\|', head)[2]
@@ -33,14 +33,14 @@ def extract_boundary_read(head, fold):
     i = 'unmapped'
     end_index_0 = {}
     end_index_16 = {}
-    with open(fold + '/' + head + '_read_end_' + i + '.sam', 'r') as end:
+    with open(folder + '/' + head + '_read_end_' + i + '.sam', 'r') as end:
         for line in end:
             if not line.startswith('@') and line.split()[3] == '1':
                 if line.split()[1] == '0':
                     end_index_0[line.split()[0]] = line.split()[9]
                 elif line.split()[1] == '16':
                     end_index_16[line.split()[0]] = line.split()[9]
-    with open(fold + '/' + head + '_read_start_' + i + '.sam', 'r') as start:
+    with open(folder + '/' + head + '_read_start_' + i + '.sam', 'r') as start:
         for line in start:
             if not line.startswith('@'):
                 if line.split()[1] == '0' and line.split()[0] in end_index_0:

@@ -20,7 +20,7 @@ def main():
                     read_start = open('read/' + label + '_read_start_' + i + '.fa', 'w')
                     read_end = open('read/' + label + '_read_end_' + i + '.fa', 'w')
                 pos = int(line.split()[3])
-                idx = pos / length * length
+                idx = int(pos / length) * length
                 cigar = line.split()[1]
                 if cigar == '0':
                     offset = pos % length
